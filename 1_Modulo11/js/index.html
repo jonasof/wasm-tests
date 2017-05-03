@@ -10,17 +10,21 @@
       var inicio = window.performance.now();
 
       console.log("Testando desempenho JS");
-      
+
       for (var x = 0; x < 1000000;  x++) {
-	Verifica_Matricula("13299997")
+          Verifica_Matricula("13299997")
       }
-      
-      console.log("TERMINEI JS " + (window.performance.now()  - inicio));
+
+      var fim = window.performance.now() - inicio;
+      console.log("TERMINEI JS " + fim);
+      document.write("TERMINEI JS " + fim);
+      document.write("<br><a href='javascript:reload();'>Novamente</a>");
 
   }
 
+  function reload() {window.location.href = window.location.href;}
 
   benchmark_js();
-  
+
   </script>
 </html>

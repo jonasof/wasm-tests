@@ -3,18 +3,20 @@
     <script>
         var Module = { onRuntimeInitialized: function() {
 
-	  var inicio = window.performance.now();
-            var Verifica_Matricula_1000000x =  Module.cwrap('Verifica_Matricula_milhao', 'number', ['string']);
+           var inicio = window.performance.now();
+           var Verifica_Matricula_1000000x =  Module.cwrap('Verifica_Matricula_milhao', 'number', ['string']);
 
-	    (Verifica_Matricula_1000000x("13299997"));
+           (Verifica_Matricula_1000000x("13299997"));
 
-	  console.log("TERMINEI WASM " + (window.performance.now()  - inicio));
+           var fim = window.performance.now() - inicio;
+           console.log("TERMINEI WASM " + fim);
+           document.write("TERMINEI WASM " + fim);
+           document.write("<br><a href='javascript:reload();'>Novamente</a>");
         }}
+
+        function reload() {window.location.href = window.location.href;}
     </script>
     <script src="function.js"></script>
 
 
-  <script>
-
-  </script>
 </html>
