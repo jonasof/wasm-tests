@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <script src="modulo11.js"></script>
+
+
+  <script>
+
+  function benchmark_js() {
+
+      var inicio = window.performance.now();
+
+      console.log("Testando desempenho JS");
+      
+      for (var x = 0; x < 1000000;  x++) {
+	Verifica_Matricula("13299997")
+      }
+      
+      console.log("TERMINEI JS " + (window.performance.now()  - inicio));
+
+  }
+
+
+  benchmark_js();
+  
+  </script>
+</html>
