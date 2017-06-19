@@ -4,9 +4,11 @@
         var Module = { onRuntimeInitialized: function() {
 
            var inicio = window.performance.now();
-           var Verifica_Matricula_1000000x =  Module.cwrap('Verifica_Matricula_milhao', 'number', ['string']);
+           var Verifica_Matricula =  Module.cwrap('Verifica_Matricula', 'number', ['string']);
 
-           (Verifica_Matricula_1000000x("13299997"));
+           for (var x = 0; x < 1000000;  x++) {
+		Verifica_Matricula("13299997")
+	   }
 
            var fim = window.performance.now() - inicio;
            console.log("TERMINEI WASM " + fim);

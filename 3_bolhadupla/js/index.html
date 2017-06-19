@@ -1,10 +1,7 @@
 <!doctype html>
 <html>
-
-<body>
-
-    <script src="modulo11.js"></script>
-
+    <script src="longovetor.js"></script>
+    <script src="bolhadupla.js"></script>
 
   <script>
 
@@ -14,9 +11,10 @@
 
       console.log("Testando desempenho JS");
 
-      for (var x = 0; x < 1000000;  x++) {
-          Verifica_Matricula("13299997")
-      }
+
+      result = ordenar(longovetor.slice(0));
+      /*console.log(result);*/
+
 
       var fim = window.performance.now() - inicio;
       console.log("TERMINEI JS " + fim);
@@ -29,9 +27,7 @@
 
   function reload() {window.location.href = window.location.href;}
 
-  (function() { benchmark_js() })();
+  benchmark_js();
 
   </script>
-</body>
-
 </html>

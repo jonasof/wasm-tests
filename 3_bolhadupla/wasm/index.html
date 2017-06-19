@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <script src="longovetor.js"></script>
+    <script>
+
+        var Module = { onRuntimeInitialized: function() {
+
+            var sizeof =  Module.cwrap('printSizeOfInt', 'number', ['number']);
+            console.log(sizeof());
+
+           var inicio = window.performance.now();
+
+           var offset = Module._malloc(4 * longovetor.length);
+
+           Module.HEAPU32.set(new Int32Array(longovetor), offset/4);
+
+           ordenar_fn=Module.cwrap('ordenar','number',['number', 'number']);
+           var resultado = ordenar_fn(offset, longovetor.length);
+
+           var ordenado = Module.HEAPU32.subarray(resultado/4, resultado/4 + longovetor.length);
+
+           var fim = window.performance.now() - inicio;
+           console.log("TERMINEI WASM " + fim);
+
+           doc =document.createElement('div');
+           doc.innerHTML = "TERMINEI WASM " + fim + "<br><a href='javascript:reload();'>Novamente</a>";
+           document.body.appendChild(doc);
+        }}
+
+        function reload() {window.location.href = window.location.href;}
+
+    </script>
+    <script src="bolhadupla.js"></script>
+
+</html>

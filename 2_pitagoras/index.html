@@ -1,0 +1,13 @@
+<script>
+
+  fetch('module.wasm').then(function(response) {
+      return response.arrayBuffer();
+  }).then(function (buffer) { 
+      return WebAssembly.instantiate(buffer, [])
+  }).then(function(result) {
+      for(var i = 0; i < 5; i++) {
+	  console.log(result.instance.exports.pitagoras(i, 10));
+      }
+  });
+    
+</script>
